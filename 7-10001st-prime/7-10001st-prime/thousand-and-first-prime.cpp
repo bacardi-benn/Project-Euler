@@ -6,7 +6,7 @@ What is the 10 001st prime number? */
 
 int isprime(long factor)
 {
-	if (factor % 2 == 0)
+	if (factor % 2 == 0 && factor != 2)
 		return 0; // false, not prime
 	for (int i = 3; i <= std::sqrt(factor); i = i + 2)
 		if (factor % i == 0)
@@ -18,9 +18,8 @@ int isprime(long factor)
 int main()
 {
 	const int target_prime_count = 10001;
-	long number = 4;
-	long counter = 2;
-	int test = isprime(2);
+	long number = 1; // the incremental number that is tested to see if it is prime
+	long counter = 0; // counts the number of primes encountered
 	while (counter < target_prime_count)
 	{
 		number++;

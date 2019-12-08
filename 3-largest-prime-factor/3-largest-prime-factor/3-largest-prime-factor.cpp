@@ -10,11 +10,11 @@
 // returns 1 (true) if factor is prime
 int isprime(long factor)
 {
-	if (factor % 2 == 0)
-		return 0;
-	for (int i = 3; i < std::sqrt(factor); i = i + 2)
+	if (factor % 2 == 0 && factor != 2)
+		return 0; // false, not prime
+	for (int i = 3; i <= std::sqrt(factor); i = i + 2)
 		if (factor % i == 0)
-			return 0;
+			return 0; // false, not prime
 	return 1;
 }
 
